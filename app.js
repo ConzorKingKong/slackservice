@@ -7,19 +7,19 @@ var PORT = process.env.PORT || 3000
 app.use(bodyParser.json())
 
 app.post('/', function(request, response) {
-  
+  console.log(JSON.stringify(request.body))
   var token = request.body.authentications.account.token.token
+  // console.log("request.body", request.body.install.options.account)
+  // console.log(token)
 
-  simpleFetch.getJson("https://api.coinbase.com/v2/accounts", {
+  simpleFetch.getJson("https://slack.com/api/channels.list", {
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
   .then(function(account) {
       var options = request.body.install.options
-      var amount = account.data[0].balance.amount
-      
-      options.bitcoin = parseFloat(amount)
+      console.log("account", account)
       response.json({install: request.body.install, proceed: true})
   })
 })
