@@ -1,6 +1,6 @@
-# Coinbase Service Example
+# Slack Service Example
 
-_The service for an example app Illustrating the use of Coinbase's API and WebHooks._
+_The service for an example app Illustrating the use of Slack's API and WebHooks._
 
 ## Usage
 
